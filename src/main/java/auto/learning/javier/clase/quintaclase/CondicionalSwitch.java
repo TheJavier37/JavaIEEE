@@ -1,4 +1,4 @@
-package auto.learning.javier.quintaclase;
+package auto.learning.javier.clase.quintaclase;
 
 import java.net.SocketTimeoutException;
 import java.sql.SQLOutput;

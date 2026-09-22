@@ -1,4 +1,4 @@
-package auto.learning.javier.terceraclase;
+package auto.learning.javier.clase.tercera;
 
 import java.util.Scanner;
 

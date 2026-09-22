@@ -1,4 +1,4 @@
-package auto.learning.javier.primeraclase;
+package auto.learning.javier.clase.primera;
 
 /**
  * @author TheJavier37
