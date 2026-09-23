@@ -1,4 +1,4 @@
-package auto.learning.javier.poo.mecanica.entidad;
+package auto.learning.javier.poo.inicial.entidad;
 
 public class Car {
 
