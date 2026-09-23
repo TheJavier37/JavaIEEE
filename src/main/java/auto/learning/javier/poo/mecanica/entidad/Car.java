@@ -25,15 +25,15 @@ public class Car {
     public void turnOnMotor(boolean motorOn) {
         if(!this.motorOn) {
             this.motorOn = true;
-            System.out.println("El motor esta encendido");
-        }
+            System.out.println("Se ha encendido el motor");
+        } else System.out.println("El motor ya esta encendido");
     }
 
     public void turnOffMotor(boolean motorOn) {
         if(this.motorOn) {
             this.motorOn = false;
-            System.out.println("El motor esta apagado");
-        }
+            System.out.println("Se ha apagado el motor");
+        } else System.out.println("EL motor ya esta apagado");
     }
 
     public void printCarInfo() {
