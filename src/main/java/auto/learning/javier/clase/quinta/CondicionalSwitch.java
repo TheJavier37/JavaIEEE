@@ -1,7 +1,5 @@
-package auto.learning.javier.clase.quintaclase;
+package auto.learning.javier.clase.quinta;
 
-import java.net.SocketTimeoutException;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class CondicionalSwitch {
