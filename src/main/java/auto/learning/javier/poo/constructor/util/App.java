@@ -21,6 +21,9 @@ public class App {
         Apple manzana = new Apple("Manzana", 0.2, "Red", TypeFlavor.SWEET, "Fuji");
         manzana.makePie();
         manzana.showInfo();
+        manzana.getAppleType();
+
+        persona1.setYearBorn(1925);
 
     }
 }

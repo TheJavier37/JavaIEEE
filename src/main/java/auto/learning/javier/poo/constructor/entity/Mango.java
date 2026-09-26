@@ -6,4 +6,11 @@ public class Mango extends Fruit {
         super(name, weight, color, flavor);
     }
 
+    public void showInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Weight: " + weight);
+        System.out.println("Color: " + color);
+        System.out.println("Flavor: " + flavor);
+    }
+
 }

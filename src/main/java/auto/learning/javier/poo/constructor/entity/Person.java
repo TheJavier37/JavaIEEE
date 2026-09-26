@@ -17,7 +17,6 @@ public class Person {
         this.yearBorn = yearBorn;
     }
 
-
     //Sobrecarga de metodos
     public int sumaSimple (int numero1, int numero2) {
         return numero1 + numero2;
@@ -52,6 +51,10 @@ public class Person {
     }
 
     public void setYearBorn(int yearBorn) {
-        this.yearBorn = yearBorn;
+        if(yearBorn >= 1926){
+            this.yearBorn = yearBorn;
+        } else {
+            System.out.println("Error: Year of birth must be greater than or equal to 1926.");
+        }
     }
 }

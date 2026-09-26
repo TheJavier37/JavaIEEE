@@ -26,4 +26,19 @@ public class Apple extends Fruit{
         System.out.println("Peeling the " + name + "with simple knife");
     }
 
+    public void getAppleType() {
+        System.out.println("The type of apple is: " + typeApple);
+    }
+
+    public void setTipoManzana(String typeApple) {
+        this.typeApple = typeApple;
+    }
+
+    public String getTypeApple() {
+        return typeApple;
+    }
+
+    public void setTypeApple(String typeApple) {
+        this.typeApple = typeApple;
+    }
 }

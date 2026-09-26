@@ -16,12 +16,7 @@ public abstract class Fruit {
         this.flavor = flavor;
     }
 
-    public void showInfo() {
-        System.out.println("Name: " + name);
-        System.out.println("Weight: " + weight);
-        System.out.println("Color: " + color);
-        System.out.println("Flavor: " + flavor);
-    }
+    public abstract void showInfo();
 
     public void peel() {
         System.out.println("Peeling the " + name);
