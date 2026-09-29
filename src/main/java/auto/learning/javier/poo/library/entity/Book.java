@@ -2,15 +2,15 @@ package auto.learning.javier.poo.library.entity;
 
 public class Book {
 
-    private String nombre;
+    private String titulo;
     private String author;
     private String genre;
     private int yearPublished;
     private double price;
     private boolean isAvailable;
 
-    public Book(String nombre, String author, String genre, int yearPublished) {
-        this.nombre = nombre;
+    public Book(String titulo, String author, String genre, int yearPublished) {
+        this.titulo = titulo;
         this.author = author;
         this.genre = genre;
         this.yearPublished = yearPublished;
@@ -20,7 +20,7 @@ public class Book {
 
     public void mostrarInformacion() {
         System.out.println("---------------------");
-        System.out.println("Nombre: " + nombre);
+        System.out.println("Nombre: " + titulo);
         System.out.println("Autor: " + author);
         System.out.println("Género: " + genre);
         System.out.println("Año de publicación: " + yearPublished);
@@ -46,12 +46,12 @@ public class Book {
         }
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getAuthor() {
