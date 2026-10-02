@@ -1,8 +1,13 @@
-package auto.learning.javier.poo.library.main;
+package auto.learning.javier.library.main;
 
-import auto.learning.javier.poo.library.entity.Book;
-import auto.learning.javier.poo.library.entity.Library;
+import auto.learning.javier.library.entity.Book;
+import auto.learning.javier.library.entity.Library;
 import java.util.Scanner;
+
+/**
+ * @author TheJavier37 (Javier Guarnizo Vega)
+ * Clase ejectuable del proyecto integrador
+ */
 
 public class App {
 
@@ -65,14 +70,18 @@ public class App {
                    biblioteca.registerBook(nuevoLibro);
 
                    break;
-               case 2:
-                   System.out.println("=== TODOS LOS LIBROS ===");
-                   biblioteca.mostrarLibros();
-
-                   break;
                case 3:
+                   System.out.println("=== PRESTAR LIBRO ===");
+                   System.out.println("Ingrese el título del libro: ");
+                   String prestarTitulo = scanner.nextLine();
+                   biblioteca.lendBook(prestarTitulo);
                    break;
+
                case 4:
+                   System.out.println("=== DEVOLVER LIBRO ===");
+                   System.out.println("Ingrese el título del libro: ");
+                   String devolverTitulo = scanner.nextLine();
+                   biblioteca.returnBook(devolverTitulo);
                    break;
                case 0:
                    System.out.println("Saliendo...");
