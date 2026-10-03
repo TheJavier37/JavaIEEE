@@ -15,6 +15,7 @@ public class App {
 
        Scanner scanner = new Scanner(System.in);
        int opcion = 0;
+       boolean keepGoing = true;
 
        Library biblioteca = new Library(50);
 
@@ -70,6 +71,10 @@ public class App {
                    biblioteca.registerBook(nuevoLibro);
 
                    break;
+               case 2:
+                   System.out.println("=== TODOS LOS LIBROS ===");
+                   biblioteca.mostrarLibros();
+                   break;
                case 3:
                    System.out.println("=== PRESTAR LIBRO ===");
                    System.out.println("Ingrese el título del libro: ");
@@ -85,13 +90,14 @@ public class App {
                    break;
                case 0:
                    System.out.println("Saliendo...");
+                   keepGoing = false;
                    break;
                default:
                    System.out.println("Opcion invalida");
 
            }
 
-       } while (opcion != 0);
+       } while (!keepGoing);
 
 
 
