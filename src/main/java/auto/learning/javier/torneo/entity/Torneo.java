@@ -37,14 +37,6 @@ public class Torneo {
         return false;
     }
 
-    public boolean simularRonda(int posicion) {
-        if (posicion >= 0 && posicion < jugadores.size()) {
-            jugadores.get(posicion).sumarVictoria();
-            return true;
-        }
-        return false;
-    }
-
     public void buscarJugador(String nombre) {
         Jugador jugador = buscarPorNombre(nombre);
 
@@ -88,6 +80,22 @@ public class Torneo {
             System.out.println(pos + ". " + j.getNombre() + " | Equipo: " + j.getEquipo() + " | Puntaje: " + j.getPuntaje() + " | Partidas: " + j.getPartidasJugadas());
             pos++;
         }
+    }
+
+    public Jugador obtenerJugadorGanador() {
+        if (jugadores.isEmpty()) {
+            return null;
+        }
+
+        Jugador ganador = jugadores.get(0);
+
+        for (int i = 1; i < jugadores.size(); i++) {
+            if (jugadores.get(i).getPuntaje() > ganador.getPuntaje()) {
+                ganador = jugadores.get(i);
+            }
+        }
+
+        return ganador;
     }
 
     private Jugador buscarPorNombre(String nombre) {

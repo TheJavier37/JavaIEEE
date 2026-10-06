@@ -1,5 +1,6 @@
 package auto.learning.javier.torneo.app;
 
+import auto.learning.javier.torneo.entity.Jugador;
 import auto.learning.javier.torneo.entity.Torneo;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class Main {
         int opcion = 0;
 
         do {
-            System.out.println("\n=== MENÚ DEL TORNEO ===");
+            System.out.println("\n=== MENÚ DEL DERBY ESPORTS 2026 ===");
             System.out.println("1. Simular una ronda");
             System.out.println("2. Buscar jugador");
             System.out.println("3. Modificar puntaje manualmente");
@@ -81,6 +82,16 @@ public class Main {
             }
 
         } while (opcion != 5);
+
+        Jugador ganador = torneo.obtenerJugadorGanador();
+
+        if (ganador != null) {
+            System.out.println("El ganador actual del derby 2026 es " + ganador.getNombre() +
+                    " con " + ganador.getPuntaje() + " puntos." +
+                    "\n!FELICIDADES al equipo " + ganador.getEquipo() + "!");
+        } else {
+            System.out.println("No hay jugadores registrados en el torneo.");
+        }
 
         scanner.close();
     }

@@ -21,80 +21,82 @@ public class App {
 
        do {
 
-           System.out.println("=====================");
-           System.out.println("SISTEMA DE BIBLIOTECA");
-           System.out.println("=====================");
-           System.out.println("1. Registrar libro");
-           System.out.println("2. Mostrar todos los libros");
-           System.out.println("3. Prestar libro");
-           System.out.println("4. Devolver libro");
-           System.out.println("0. Salir");
+           try {
 
-           System.out.println("Ingrese una opción: ");
-           opcion = scanner.nextInt();
-           scanner.nextLine();
+               System.out.println("=====================");
+               System.out.println("SISTEMA DE BIBLIOTECA");
+               System.out.println("=====================");
+               System.out.println("1. Registrar libro");
+               System.out.println("2. Mostrar todos los libros");
+               System.out.println("3. Prestar libro");
+               System.out.println("4. Devolver libro");
+               System.out.println("0. Salir");
 
-           switch (opcion) {
-               case 1:
-                   System.out.println("=== REGISTRAR LIBRO ===");
-                   System.out.println("Titulo: ");
-                   String titulo = scanner.nextLine();
+               System.out.println("Ingrese una opción: ");
+               opcion = scanner.nextInt();
+               scanner.nextLine();
 
-                   System.out.println("Autor: ");
-                   String author = scanner.nextLine();
+               switch (opcion) {
+                   case 1:
+                       System.out.println("=== REGISTRAR LIBRO ===");
+                       String titulo;
 
-                   System.out.println("Genero: ");
-                   String genre = scanner.nextLine();
+                       do {
+                           System.out.println("Titulo: ");
+                           titulo = scanner.nextLine();
+                       } while (titulo.isEmpty());
 
-                   System.out.println("Año de publicación: ");
-                   int yearPublished = scanner.nextInt();
-                   scanner.nextLine();
+                       String author;
+                       do {
+                           System.out.println("Autor: ");
+                           author = scanner.nextLine();
+                       } while (author.isEmpty());
 
-                   if (titulo.isEmpty()){
-                       System.out.println("El titulo no puede estar vacio");
+                       String genre;
+                       do {
+                           System.out.println("Genero: ");
+                           genre = scanner.nextLine();
+                       } while (genre.isEmpty());
+
+                       int yearPublished;
+                       do {
+                           System.out.println("Año de publicación: ");
+                           yearPublished = scanner.nextInt();
+                           scanner.nextLine();
+                       } while (yearPublished <= 0);
+
+                       Book nuevoLibro = new Book(titulo, author, genre, yearPublished);
+                       biblioteca.registerBook(nuevoLibro);
+
                        break;
-                   }
-                   if (author.isEmpty()){
-                       System.out.println("El autor no puede estar vacio");
+                   case 2:
+                       System.out.println("=== TODOS LOS LIBROS ===");
+                       biblioteca.mostrarLibros();
                        break;
-                   }
-                   if (genre.isEmpty()){
-                       System.out.println("El genero no puede estar vacio");
+                   case 3:
+                       System.out.println("=== PRESTAR LIBRO ===");
+                       System.out.println("Ingrese el título del libro: ");
+                       String prestarTitulo = scanner.nextLine();
+                       biblioteca.lendBook(prestarTitulo);
                        break;
-                   }
-                   if(yearPublished <= 0){
-                       System.out.println("El año no es valido");
+
+                   case 4:
+                       System.out.println("=== DEVOLVER LIBRO ===");
+                       System.out.println("Ingrese el título del libro: ");
+                       String devolverTitulo = scanner.nextLine();
+                       biblioteca.returnBook(devolverTitulo);
                        break;
-                   }
+                   case 0:
+                       System.out.println("Saliendo...");
+                       keepGoing = false;
+                       break;
+                   default:
+                       System.out.println("Opcion invalida");
 
-                   Book nuevoLibro = new Book(titulo, author, genre, yearPublished);
-                   biblioteca.registerBook(nuevoLibro);
-
-                   break;
-               case 2:
-                   System.out.println("=== TODOS LOS LIBROS ===");
-                   biblioteca.mostrarLibros();
-                   break;
-               case 3:
-                   System.out.println("=== PRESTAR LIBRO ===");
-                   System.out.println("Ingrese el título del libro: ");
-                   String prestarTitulo = scanner.nextLine();
-                   biblioteca.lendBook(prestarTitulo);
-                   break;
-
-               case 4:
-                   System.out.println("=== DEVOLVER LIBRO ===");
-                   System.out.println("Ingrese el título del libro: ");
-                   String devolverTitulo = scanner.nextLine();
-                   biblioteca.returnBook(devolverTitulo);
-                   break;
-               case 0:
-                   System.out.println("Saliendo...");
-                   keepGoing = false;
-                   break;
-               default:
-                   System.out.println("Opcion invalida");
-
+               }
+           } catch(Exception e){
+               System.out.println("Error: " + e.getMessage());
+               scanner.nextLine();
            }
 
        } while (!keepGoing);
