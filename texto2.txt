@@ -1,0 +1,2 @@
+Texto BufferedWriter
+Segunda linea con BufferedWriter

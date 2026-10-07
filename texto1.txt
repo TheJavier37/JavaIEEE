@@ -1,0 +1,2 @@
+Texto FileWriter
+Segunda linea con FileWriter
