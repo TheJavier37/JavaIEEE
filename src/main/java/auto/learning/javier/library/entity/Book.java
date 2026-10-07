@@ -22,6 +22,9 @@ public class Book {
         this.isAvailable = true;
     }
 
+    public Book(String title, String author, int yearPublished, boolean available) {
+    }
+
     public void mostrarInformacion() {
         System.out.println("---------------------");
         System.out.println("Nombre: " + title);

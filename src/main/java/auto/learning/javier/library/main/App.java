@@ -67,7 +67,7 @@ public class App {
 
                        Book nuevoLibro = new Book(titulo, author, genre, yearPublished);
                        biblioteca.registerBook(nuevoLibro);
-
+                       biblioteca.saveBook(nuevoLibro);
                        break;
                    case 2:
                        System.out.println("=== TODOS LOS LIBROS ===");
@@ -98,6 +98,7 @@ public class App {
                System.out.println("Error: " + e.getMessage());
                scanner.nextLine();
            }
+
 
        } while (!keepGoing);
 

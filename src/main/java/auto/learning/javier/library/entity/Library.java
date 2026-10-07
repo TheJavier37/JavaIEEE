@@ -1,5 +1,7 @@
 package auto.learning.javier.library.entity;
 
+import java.io.*;
+
 /**
  * @author TheJavier37 (Javier Guarnizo Vega)
  */
@@ -12,6 +14,7 @@ public class Library {
     public Library(int capacity) {
         books = new Book[capacity];
         numBooks = 0;
+        readBooksText("books.txt");
     }
 
     public void registerBook(Book book) {
@@ -65,5 +68,44 @@ public class Library {
         } else {
             System.out.println("El libro no pertenece a la biblioteca.");
         }
+    }
+
+    public void saveBook(Book libro) throws IOException {
+
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("libros.txt",true));
+            bufferedWriter.write(libro.getTitle() + ";" + libro.getAuthor() + ";" + libro.getYearPublished() + ";" + libro.isAvailable());
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void readBooksText(String file){
+
+        File archivo = new File("libros.txt");
+
+        if(!archivo.exists()){
+            System.out.println("El archivo no existe");
+        }
+
+        try{
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(archivo));
+            String linea;
+            while((linea = bufferedReader.readLine()) != null){
+                String[] datos = linea.split(";");
+                String title = datos[0];
+                String author = datos[1];
+                int yearPublished = Integer.parseInt(datos[2]);
+                boolean available = Boolean.parseBoolean(datos[3]);
+                Book libro = new Book(title, author, yearPublished, available);
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
