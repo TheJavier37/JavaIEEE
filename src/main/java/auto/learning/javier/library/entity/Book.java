@@ -18,11 +18,17 @@ public class Book {
         this.author = author;
         this.genre = genre;
         this.yearPublished = yearPublished;
-        this.price = 0.0; // Corregido: inicializar price correctamente
+        this.price = 0.0;
         this.isAvailable = true;
     }
 
     public Book(String title, String author, int yearPublished, boolean available) {
+        this.title = title;
+        this.author = author;
+        this.genre = "Sin género";
+        this.yearPublished = yearPublished;
+        this.price = 0.0;
+        this.isAvailable = available;
     }
 
     public void mostrarInformacion() {

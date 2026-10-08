@@ -1,4 +1,4 @@
-package auto.learning.javier.library.main;
+package auto.learning.javier.library.app;
 
 import auto.learning.javier.library.entity.Book;
 import auto.learning.javier.library.entity.Library;
@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Clase ejectuable del proyecto integrador
  */
 
-public class App {
+public class Main {
 
    public static void main(String[] args) {
 
@@ -71,7 +71,7 @@ public class App {
                        break;
                    case 2:
                        System.out.println("=== TODOS LOS LIBROS ===");
-                       biblioteca.mostrarLibros();
+                       biblioteca.showBooks();
                        break;
                    case 3:
                        System.out.println("=== PRESTAR LIBRO ===");
@@ -100,7 +100,7 @@ public class App {
            }
 
 
-       } while (!keepGoing);
+       } while (keepGoing);
 
 
 

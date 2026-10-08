@@ -14,7 +14,7 @@ public class Library {
     public Library(int capacity) {
         books = new Book[capacity];
         numBooks = 0;
-        readBooksText("books.txt");
+        readBooksText("libros.txt");
     }
 
     public void registerBook(Book book) {
@@ -27,9 +27,9 @@ public class Library {
         }
     }
 
-    public void mostrarLibros() {
+    public void showBooks() {
         for (int i = 0; i < numBooks; i++) {
-            System.out.println("Libro " + (i + 1) + ": " + books[i].getTitle());
+            System.out.println("Libro " + (i + 1) + ": " + books[i].getTitle() + ", " + books[i].getGenre() + ", " + books[i].getAuthor() + ", " + books[i].getYearPublished() + ".");
         }
     }
 
@@ -83,29 +83,28 @@ public class Library {
 
     }
 
-    public void readBooksText(String file){
+    public void readBooksText(String file) {
+        File archivo = new File(file);
 
-        File archivo = new File("libros.txt");
-
-        if(!archivo.exists()){
-            System.out.println("El archivo no existe");
+        if (!archivo.exists()) {
+            return;
         }
 
-        try{
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(archivo));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(archivo))) {
             String linea;
-            while((linea = bufferedReader.readLine()) != null){
+            while ((linea = bufferedReader.readLine()) != null) {
                 String[] datos = linea.split(";");
                 String title = datos[0];
                 String author = datos[1];
                 int yearPublished = Integer.parseInt(datos[2]);
                 boolean available = Boolean.parseBoolean(datos[3]);
-                Book libro = new Book(title, author, yearPublished, available);
-            }
-            bufferedReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
+                Book libro = new Book(title, author, yearPublished, available);
+                registerBook(libro);
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
     }
+
 }
