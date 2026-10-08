@@ -32,9 +32,16 @@ public class Main {
                System.out.println("4. Devolver libro");
                System.out.println("0. Salir");
 
-               System.out.println("Ingrese una opción: ");
-               opcion = scanner.nextInt();
-               scanner.nextLine();
+               do {
+
+                   System.out.println("Ingrese una opción: ");
+                   opcion = scanner.nextInt();
+                   scanner.nextLine();
+                   if (opcion < 0 || opcion > 4) {
+                       System.out.println("Opción inválida. Intente nuevamente.");
+                   }
+
+               }while (opcion < 0 || opcion > 4);
 
                switch (opcion) {
                    case 1:
@@ -44,18 +51,27 @@ public class Main {
                        do {
                            System.out.println("Titulo: ");
                            titulo = scanner.nextLine();
+                           if (titulo.isEmpty()) {
+                               System.out.println("El título no puede estar vacío. Intente nuevamente.");
+                           }
                        } while (titulo.isEmpty());
 
                        String author;
                        do {
                            System.out.println("Autor: ");
                            author = scanner.nextLine();
+                           if (author.isEmpty()) {
+                               System.out.println("El autor no puede estar vacío. Intente nuevamente.");
+                           }
                        } while (author.isEmpty());
 
                        String genre;
                        do {
                            System.out.println("Genero: ");
                            genre = scanner.nextLine();
+                           if (genre.isEmpty()) {
+                               System.out.println("El género no puede estar vacío. Intente nuevamente.");
+                           }
                        } while (genre.isEmpty());
 
                        int yearPublished;
@@ -63,6 +79,9 @@ public class Main {
                            System.out.println("Año de publicación: ");
                            yearPublished = scanner.nextInt();
                            scanner.nextLine();
+                           if (yearPublished <= 0) {
+                               System.out.println("El año de publicación debe ser mayor que cero. Intente nuevamente.");
+                           }
                        } while (yearPublished <= 0);
 
                        Book nuevoLibro = new Book(titulo, author, genre, yearPublished);
