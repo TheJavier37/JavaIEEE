@@ -24,7 +24,7 @@ public class Main {
            try {
 
                System.out.println("=====================");
-               System.out.println("SISTEMA DE BIBLIOTECA");
+               System.out.println("SISTEMA DE BIBLIOTECA NOVAVIER");
                System.out.println("=====================");
                System.out.println("1. Registrar libro");
                System.out.println("2. Mostrar todos los libros");
@@ -107,6 +107,7 @@ public class Main {
                        break;
                    case 0:
                        System.out.println("Saliendo...");
+                       System.out.println("Gracias por preferirnos");
                        keepGoing = false;
                        break;
                    default:
@@ -114,7 +115,7 @@ public class Main {
 
                }
            } catch(Exception e){
-               System.out.println("Error: " + e.getMessage());
+               System.out.println("Ha ocurrido un error: " + e.getMessage());
                scanner.nextLine();
            }
 
